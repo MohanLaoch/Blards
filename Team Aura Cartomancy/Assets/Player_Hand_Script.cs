@@ -26,14 +26,12 @@ public class Player_Hand_Script : MonoBehaviour
         int Card3 = Random.Range(0, Deck_Script.CardsRemainingInDeck.Count);
         GameObject Card3Obj = Instantiate(Deck_Script.CardsRemainingInDeck[Card3]);
         CardsInHand.Add(Card3Obj);
-        Deck_Script.CardsRemainingInDeck.RemoveAt(Card3);
-    }
-
-    public void Update()
-    {
-        for(int i = 0; i < CardsInHand.Count; i++)
+        Deck_Script.CardsRemainingInDeck.RemoveAt(Card3); 
+        
+        for (int i = 0; i < CardsInHand.Count; i++)
         {
             CardsInHand[i].transform.position = new Vector3(i * CardOffset - CardOffset, -4.2f, 0);
+            CardsInHand[i].GetComponent<Dragger>().HandPosition = CardsInHand[i].transform.position;
         }
     }
 }

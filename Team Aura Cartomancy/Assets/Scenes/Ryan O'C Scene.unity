@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 259390829}
   m_Layer: 0
   m_Name: Card Zone 1 Selection Square
-  m_TagString: Untagged
+  m_TagString: PlayablePosition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -341,7 +341,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 259390828}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -600,7 +600,7 @@ GameObject:
   - component: {fileID: 590985992}
   m_Layer: 0
   m_Name: Card Zone 3 Selection Square
-  m_TagString: Untagged
+  m_TagString: PlayablePosition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -612,7 +612,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 590985991}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1103,7 +1103,7 @@ GameObject:
   - component: {fileID: 1211699282}
   m_Layer: 0
   m_Name: Card Zone 2 Selection Square
-  m_TagString: Untagged
+  m_TagString: PlayablePosition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1115,7 +1115,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1211699281}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
