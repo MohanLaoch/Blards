@@ -12,16 +12,13 @@ public class Card : MonoBehaviour
     {
         gm = FindObjectOfType<GameManager>();
     }
+
     private void OnMouseDown()
     {
-         
-        if (hasBeenPlayed == false)
+        if(hasBeenPlayed == false)
         {
-            transform.position += Vector3.up * 5;
             hasBeenPlayed = true;
             gm.availableCardSlots[handIndex] = true;
-            Invoke("MoveToDiscardPile", 2f);
-            Debug.Log("Click");
         }
     }
 
