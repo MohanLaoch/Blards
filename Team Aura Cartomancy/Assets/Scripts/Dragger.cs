@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Dragger : MonoBehaviour
 {
+    private TurnManager TurnMan;
+
     private Vector3 dragOffset;
     private Camera cam;
     private BoxCollider2D col;
@@ -11,6 +13,8 @@ public class Dragger : MonoBehaviour
     [SerializeField] float speed = 10f;
     [SerializeField] float LockOnDistance = 1f;
     [HideInInspector] public GameObject[] PlayablePositions;
+
+    private Player_Hand_Script PHS;
 
     public Vector3 HandPosition;
 
@@ -21,6 +25,12 @@ public class Dragger : MonoBehaviour
         col = gameObject.GetComponent<BoxCollider2D>();
     }
 
+    private void Start()
+    {
+        TurnMan = FindObjectOfType<TurnManager>();
+        PHS = FindObjectOfType<Player_Hand_Script>();
+    }
+
     private void OnMouseDown()
     {
         dragOffset = transform.position - GetMousePos();
@@ -28,12 +38,18 @@ public class Dragger : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        transform.position = Vector3.MoveTowards(transform.position, GetMousePos() + dragOffset, speed * Time.deltaTime);
-
-        for (int i = 0; i < PlayablePositions.Length; i++)
+        if (TurnMan.IsPlayerTurn == true && TurnMan.PlayerCardPlayedForTurn == false)
         {
-            SpriteRenderer SpriteRenderer = PlayablePositions[i].gameObject.GetComponent<SpriteRenderer>();
-            SpriteRenderer.enabled = Vector3.Distance(PlayablePositions[i].transform.position, transform.position) <= LockOnDistance;
+            transform.position = Vector3.MoveTowards(transform.position, GetMousePos() + dragOffset, speed * Time.deltaTime);
+
+            for (int i = 0; i < PlayablePositions.Length; i++)
+            {
+                if (PlayablePositions[i].GetComponent<PlayablePosition>().CardInPlay == false)
+                {
+                    SpriteRenderer SpriteRenderer = PlayablePositions[i].gameObject.GetComponent<SpriteRenderer>();
+                    SpriteRenderer.enabled = Vector3.Distance(PlayablePositions[i].transform.position, transform.position) <= LockOnDistance;
+                }
+            }
         }
     }
 
@@ -43,10 +59,26 @@ public class Dragger : MonoBehaviour
         {
             if(Vector3.Distance(PlayablePositions[i].transform.position, transform.position) <= LockOnDistance)
             {
-                transform.position = PlayablePositions[i].transform.position;
-                col.enabled = false;
-                RotationUI.SetActive(true);
-                return;
+                if (PlayablePositions[i].GetComponent<PlayablePosition>().CardInPlay == false)
+                {
+                    PlayablePositions[i].GetComponent<PlayablePosition>().CardInPlay = true;
+                    transform.position = PlayablePositions[i].transform.position;
+                    col.enabled = false;
+                    RotationUI.SetActive(true);
+
+                    for (int j = 0; j < PHS.CardsInHand.Count; j++)
+                    {
+                        if (PHS.CardsInHand[j] == this.gameObject)
+                        {
+                            PHS.CardsInHand.RemoveAt(j);
+                            PHS.ResetHand();
+                            break;
+                        }
+                    }
+
+                    TurnMan.PlayerCardPlayedForTurn = true;
+                    return;
+                }
             }
         }
         transform.position = HandPosition;
