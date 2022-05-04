@@ -83,7 +83,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &350196319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1333,6 +1333,7 @@ GameObject:
   - component: {fileID: 2120384215709784239}
   - component: {fileID: 5993868278030613209}
   - component: {fileID: 1796165285}
+  - component: {fileID: 1947595614}
   m_Layer: 0
   m_Name: Basic Proto Card M
   m_TagString: Untagged
@@ -1464,3 +1465,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RotationUI: {fileID: 350196318}
+--- !u!114 &1947595614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5959936457080638349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c71055f9a4db60442b2a5ed5e0ca8ab7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsEnemyCard: 0
+  FrontGFX: {fileID: 5959936456096377099}
+  BackGFX: {fileID: 5959936455369114386}

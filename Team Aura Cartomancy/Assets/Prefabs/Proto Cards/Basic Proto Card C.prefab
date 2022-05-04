@@ -867,6 +867,7 @@ GameObject:
   - component: {fileID: 2459215800431611869}
   - component: {fileID: 7340811309039387670}
   - component: {fileID: 2115528553}
+  - component: {fileID: 706104592}
   m_Layer: 0
   m_Name: Basic Proto Card C
   m_TagString: Untagged
@@ -998,6 +999,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RotationUI: {fileID: 1676407905}
+--- !u!114 &706104592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6766805065091072274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c71055f9a4db60442b2a5ed5e0ca8ab7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsEnemyCard: 0
+  FrontGFX: {fileID: 6766805065112937728}
+  BackGFX: {fileID: 6766805065822521140}
 --- !u!1 &6766805065095318742
 GameObject:
   m_ObjectHideFlags: 0

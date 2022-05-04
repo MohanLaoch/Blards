@@ -14,31 +14,47 @@ public class Dragger : MonoBehaviour
     [SerializeField] float LockOnDistance = 1f;
     [HideInInspector] public GameObject[] PlayablePositions;
 
-    private Player_Hand_Script PHS;
+    [HideInInspector] public Player_Hand_Script PHS;
 
     public Vector3 HandPosition;
+
+    private CardValues CV;
 
     private void Awake()
     {
         cam = Camera.main;
-        PlayablePositions = GameObject.FindGameObjectsWithTag("PlayablePosition");
         col = gameObject.GetComponent<BoxCollider2D>();
     }
 
     private void Start()
     {
         TurnMan = FindObjectOfType<TurnManager>();
-        PHS = FindObjectOfType<Player_Hand_Script>();
+        CV = gameObject.GetComponent<CardValues>();
+        if(CV.IsEnemyCard)
+        {
+            PlayablePositions = GameObject.FindGameObjectsWithTag("EnemyPlayablePosition");
+        }
+        else
+        {
+            PlayablePositions = GameObject.FindGameObjectsWithTag("PlayablePosition");
+        }
     }
 
     private void OnMouseDown()
     {
-        dragOffset = transform.position - GetMousePos();
+        if (CV.CardIsActive == true && TurnMan.IsPlayerTurn == true && CV.CardAttackedForTurn == true && CV.IsEnemyCard != true && TurnMan.PlayerDrawnForTurn == true)
+        {
+
+        }
+        else
+        {
+            dragOffset = transform.position - GetMousePos();
+        }
     }
 
     private void OnMouseDrag()
     {
-        if (TurnMan.IsPlayerTurn == true && TurnMan.PlayerCardPlayedForTurn == false)
+        if (CV.CardIsActive != true && TurnMan.IsPlayerTurn == true && TurnMan.PlayerCardPlayedForTurn == false && CV.IsEnemyCard != true && TurnMan.PlayerDrawnForTurn == true)
         {
             transform.position = Vector3.MoveTowards(transform.position, GetMousePos() + dragOffset, speed * Time.deltaTime);
 
