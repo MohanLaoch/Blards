@@ -5,6 +5,7 @@ using UnityEngine;
 public class TurnManager : MonoBehaviour
 {
     public bool IsPlayerTurn = true;
+    public bool IsFirstTurn = true;
 
     public bool PlayerDrawnForTurn;
     public bool PlayerCardPlayedForTurn;
@@ -21,6 +22,17 @@ public class TurnManager : MonoBehaviour
 
     public void ChangeTurn()
     {
+        if(IsFirstTurn == true)
+        {
+            IsFirstTurn = false;
+        }
+
+        CardValues[] AllCards = FindObjectsOfType<CardValues>();
+        for(int i = 0; i < AllCards.Length; i++)
+        {
+            AllCards[i].CardAttackedForTurn = false;
+        }
+
         if (IsPlayerTurn == true)
         {
             EndTurnButton.SetActive(false);

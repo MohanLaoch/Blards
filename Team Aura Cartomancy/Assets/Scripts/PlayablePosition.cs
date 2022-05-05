@@ -5,4 +5,5 @@ using UnityEngine;
 public class PlayablePosition : MonoBehaviour
 {
     public bool CardInPlay;
+    public CardValues Card;
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CardValues : MonoBehaviour
 {
@@ -8,8 +9,8 @@ public class CardValues : MonoBehaviour
     public GameObject FrontGFX;
     public GameObject BackGFX;
 
-    [HideInInspector] public bool OnBlueSide;
-    [HideInInspector] public bool CardIsActive;
+    public bool OnBlueSide;
+    public bool CardIsActive;
 
     public int BlueAttack;
     public int BlueHealth;
@@ -18,11 +19,27 @@ public class CardValues : MonoBehaviour
     public int RedHealth;
 
     [HideInInspector] public bool CardAttackedForTurn;
+    [HideInInspector] public bool selected;
 
     private SelectRotation selRotation;
+    public TMP_Text BlueHP_Display;
+    public TMP_Text BlueAtk_Display;
+    public TMP_Text RedHP_Display;
+    public TMP_Text RedAtk_Display;
+
+    public PlayablePosition position;
+
     private void Start()
     {
         selRotation = gameObject.GetComponent<SelectRotation>();
+    }
+
+    private void Update()
+    {
+        BlueHP_Display.text = BlueHealth.ToString();
+        BlueAtk_Display.text = BlueAttack.ToString();
+        RedHP_Display.text = RedHealth.ToString();
+        RedAtk_Display.text = RedAttack.ToString();
     }
 
     public void SetCardAsPlayerCard()
@@ -55,5 +72,37 @@ public class CardValues : MonoBehaviour
             OnBlueSide = false;
             selRotation.RedSide();
         }
+    }
+
+    public void TakeDamage(int Damage, CardValues AttackingCard)
+    {
+        position.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+
+        AttackingCard.CardAttackedForTurn = true;
+
+        if (OnBlueSide == true)
+        {
+            BlueHealth -= Damage;
+            if(BlueHealth <= 0)
+            {
+                CardDefeated();
+            }
+        }
+        else
+        {
+            RedHealth -= Damage;
+            if(RedHealth <= 0)
+            {
+                CardDefeated();
+            }
+        }
+    }
+
+    public void CardDefeated()
+    {
+        position.CardInPlay = false;
+        position.Card = null;
+
+        Destroy(gameObject);
     }
 }
