@@ -40,6 +40,22 @@ public class CardValues : MonoBehaviour
         BlueAtk_Display.text = BlueAttack.ToString();
         RedHP_Display.text = RedHealth.ToString();
         RedAtk_Display.text = RedAttack.ToString();
+
+        if(OnBlueSide == true && CardIsActive == true)
+        {
+            BlueHP_Display.color = Color.red;
+            BlueAtk_Display.color = Color.red;
+            RedHP_Display.color = Color.white;
+            RedAtk_Display.color = Color.white;
+        }
+        else if(CardIsActive == true)
+        {
+
+            BlueHP_Display.color = Color.white;
+            BlueAtk_Display.color = Color.white;
+            RedHP_Display.color = Color.red;
+            RedAtk_Display.color = Color.red;
+        }
     }
 
     public void SetCardAsPlayerCard()

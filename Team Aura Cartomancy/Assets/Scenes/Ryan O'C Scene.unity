@@ -169,8 +169,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyDeck: 1
   CardsInStartingDeck:
-  - {fileID: 6770127607328926948, guid: a2d209f45125b50498e478e5db2804a1, type: 3}
-  - {fileID: 5186626673894876572, guid: 012a1df9e37ffad48a79371ecee8a507, type: 3}
+  - {fileID: 2491995441874337583, guid: 88b0fcc11df8849479c963575832544a, type: 3}
+  - {fileID: 4426708949605433035, guid: 2fa4cfe5569a8f846b6b218c3767470c, type: 3}
   - {fileID: 6766805065091072274, guid: 922734049ded192478b1c709061909a3, type: 3}
   - {fileID: 7103331291912792515, guid: abff00832d9c38749b78fbf5bbddc9be, type: 3}
   - {fileID: 2174116588600102179, guid: 9be0ca735c5412c4cb7b0fc4172f4816, type: 3}
@@ -181,7 +181,7 @@ MonoBehaviour:
   - {fileID: 3462436094527462517, guid: bed0118a1d2d79247aa082a6d667303d, type: 3}
   - {fileID: 2347369899344962956, guid: 2d8c36a71ebd54945a208f76b1704dde, type: 3}
   - {fileID: 9050413876769918576, guid: e7d688a2a14c4ae4ca5fa4862ba280c4, type: 3}
-  - {fileID: 5959936457080638349, guid: c5e473451f16c264bb9b18c3a1360475, type: 3}
+  - {fileID: 5447068002194089912, guid: 0a5c5bb95b9643d41bae3687c22f3c88, type: 3}
   - {fileID: 6294127383367961097, guid: e14534ca26b242e43971359e254a9ea8, type: 3}
   - {fileID: 5060277970140560454, guid: 24d74e839bcd4ed439d0eb378a317263, type: 3}
   CardsRemainingInDeck: []
@@ -2353,6 +2353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPlayerTurn: 1
+  IsFirstTurn: 1
   PlayerDrawnForTurn: 0
   PlayerCardPlayedForTurn: 0
   EndTurnButton: {fileID: 747444975}
@@ -5449,6 +5450,7 @@ MonoBehaviour:
   EnemyDeck: {fileID: 111702356}
   EnemyHand: {fileID: 1656840045}
   PlayablePositions: []
+  OpponentPositions: []
   CurrentAvailablePositions: []
 --- !u!1001 &1706784473
 PrefabInstance:
