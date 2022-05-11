@@ -116,7 +116,7 @@ public class EnemyAI : MonoBehaviour
                     }
                     else
                     {
-                        Player_HP EnemyHP = GameObject.Find("Enemy HP").GetComponent<Player_HP>();
+                        Player_HP PlayerHP = GameObject.Find("Player HP").GetComponent<Player_HP>();
                         AttackingCards[i].CardAttackedForTurn = true;
                         int currentAttack;
 
@@ -128,7 +128,7 @@ public class EnemyAI : MonoBehaviour
                         {
                             currentAttack = AttackingCards[i].RedAttack;
                         }
-                        EnemyHP.TakeDamage(currentAttack, AttackingCards[i]);
+                        PlayerHP.TakeDamage(currentAttack, AttackingCards[i]);
                     }
                 }
             }
