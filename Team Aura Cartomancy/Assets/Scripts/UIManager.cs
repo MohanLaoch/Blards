@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -12,15 +13,19 @@ public class UIManager : MonoBehaviour
     public TMP_Text playerNameText;
     public TMP_InputField playerNameInput;
 
+    private void Start()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     public void Update()
     {
-        playerName = PlayerPrefs.GetString("name", "none");
         playerNameText.text = playerName.ToString();
     }
 
     public void SetName()
     {
         saveName = playerNameInput.text;
-        PlayerPrefs.SetString("name", saveName);
+        SceneManager.LoadScene(1);
     }
 }

@@ -44,7 +44,7 @@ public class Player_Deck_Script : MonoBehaviour
 
             PHS.ResetHand();
         }
-        else
+        else if (PHS.CardsInHand.Count >= PHS.MaxCardsInHand)
         {
             //Too Many Cards
             TurnMan.PlayerDrawnForTurn = true;
