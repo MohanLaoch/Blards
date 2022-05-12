@@ -35,11 +35,11 @@ public class Player_HP : MonoBehaviour
         {
             if(gameObject.tag == "Friendly")
             {
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene(3);
             }
             if(gameObject.tag == "Enemy")
             {
-                SceneManager.LoadScene(3);
+                SceneManager.LoadScene(4);
             }
         }
     }

@@ -7,12 +7,19 @@ public class Retry : MonoBehaviour
 {
     public void TryAgain()
     {
-        SceneManager.LoadScene(1);
+        
+        SceneManager.LoadScene(2);
     }
 
     public void Bye()
     {
         Application.Quit();
-        Debug.Log("GGWP");
+    }
+
+    public void PlayAgain()
+    {
+        FindObjectOfType<AudioManager>().Stop("GameMusic");
+        FindObjectOfType<AudioManager>().Play("ThemeMusic");
+        SceneManager.LoadScene(0);
     }
 }

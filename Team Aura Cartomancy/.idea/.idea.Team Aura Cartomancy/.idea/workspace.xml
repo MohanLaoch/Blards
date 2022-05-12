@@ -19,6 +19,8 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Dialogue/DialogueTrigger.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UIManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Dialogue/DialogueManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player_HP.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Retry.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="293wWvTd5ci5AY6aRqI7opfDurE" />
@@ -71,6 +73,7 @@
       <option name="presentableId" value="Default" />
       <updated>1652355119449</updated>
       <workItem from="1652355123561" duration="4745000" />
+      <workItem from="1652363337974" duration="978000" />
     </task>
     <servers />
   </component>
