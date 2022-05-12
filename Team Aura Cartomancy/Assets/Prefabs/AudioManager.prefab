@@ -44,8 +44,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
+  - name: ThemeMusic
+    clip: {fileID: 8300000, guid: e99d949f60bc9164fb7dfc0c716f0b4f, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
   - name: GameMusic
-    clip: {fileID: 8300000, guid: b92649e2ed62c5e429e32e64f1dcc102, type: 3}
+    clip: {fileID: 8300000, guid: 62135b41146923f4aae79b5ae4c1920a, type: 3}
     volume: 0.6
     pitch: 1
     loop: 1

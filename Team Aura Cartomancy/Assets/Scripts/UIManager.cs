@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        FindObjectOfType<AudioManager>().Play("ThemeMusic");
         DontDestroyOnLoad(gameObject);
     }
 
@@ -27,5 +28,6 @@ public class UIManager : MonoBehaviour
     {
         saveName = playerNameInput.text;
         SceneManager.LoadScene(1);
+        
     }
 }
