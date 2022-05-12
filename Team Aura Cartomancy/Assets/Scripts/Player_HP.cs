@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Player_HP : MonoBehaviour
 {
@@ -32,7 +33,14 @@ public class Player_HP : MonoBehaviour
         CurrentHP -= Damage;
         if(CurrentHP <= 0)
         {
-            //GameEndHere
+            if(gameObject.tag == "Friendly")
+            {
+                SceneManager.LoadScene(2);
+            }
+            if(gameObject.tag == "Enemy")
+            {
+                SceneManager.LoadScene(3);
+            }
         }
     }
 }

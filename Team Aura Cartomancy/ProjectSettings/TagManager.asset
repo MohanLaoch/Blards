@@ -6,6 +6,8 @@ TagManager:
   tags:
   - PlayablePosition
   - EnemyPlayablePosition
+  - Enemy
+  - Friendly
   layers:
   - Default
   - TransparentFX
